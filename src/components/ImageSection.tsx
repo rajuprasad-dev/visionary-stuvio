@@ -179,7 +179,7 @@ const ImageSection = ({
 			onClick={handleClick}>
 			<div
 				ref={container}
-				className="relative p-10 overflow-hidden flex items-end h-full max-sm:h-dvh opacity-0 translate-y-5">
+				className="relative p-8 md:p-10 overflow-hidden flex items-end h-full max-sm:h-dvh opacity-0 translate-y-5">
 				<img
 					ref={overlay}
 					src={imgSrc}
@@ -200,7 +200,7 @@ const ImageSection = ({
 					<LandingText
 						text={heading}
 						textType="lines"
-						className={`relative md:col-span-2 z-10 uppercase text-6xl md:text-4xl leading-tight animte-text max-w-[300px] mt-auto ${
+						className={`relative md:col-span-2 z-10 uppercase text-5xl md:text-4xl leading-tight animte-text max-w-[300px] mt-auto ${
 							!isExpanded &&
 							"max-md:absolute max-md:top-1/2 -translate-y-1/2"
 						}`}
