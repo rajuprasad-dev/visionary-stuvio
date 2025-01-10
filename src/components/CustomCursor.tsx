@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { SiteContext } from "@/context/SiteContext";
+import React, { useContext, useEffect, useState } from "react";
 
 const CustomCursor: React.FC = () => {
+	const { deviceType } = useContext(SiteContext);
+
 	const [cursorSize, setCursorSize] = useState(25);
 
 	useEffect(() => {
@@ -26,6 +29,8 @@ const CustomCursor: React.FC = () => {
 			document.removeEventListener("mouseup", handleMouseUp);
 		};
 	}, []);
+
+	if (deviceType !== "desktop") return null;
 
 	return (
 		<div
