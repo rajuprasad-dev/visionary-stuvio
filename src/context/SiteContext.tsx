@@ -7,6 +7,8 @@ interface SiteContextType {
 	setDeviceType: React.Dispatch<
 		React.SetStateAction<"mobile" | "tablet" | "desktop">
 	>;
+	expandedId: number | null;
+	setExpandedId: React.Dispatch<React.SetStateAction<number | null>>;
 	expandedSection: HTMLDivElement | null;
 	setExpandedSection: React.Dispatch<
 		React.SetStateAction<HTMLDivElement | null>
@@ -18,6 +20,8 @@ export const SiteContext = createContext<SiteContextType>({
 	setShowMobile: () => {},
 	deviceType: "desktop",
 	setDeviceType: () => {},
+	expandedId: null,
+	setExpandedId: () => {},
 	expandedSection: null,
 	setExpandedSection: () => {},
 });
@@ -29,6 +33,7 @@ export const SiteProvider: React.FC<{ children: React.ReactNode }> = ({
 	const [deviceType, setDeviceType] = useState<
 		"mobile" | "tablet" | "desktop"
 	>("desktop");
+	const [expandedId, setExpandedId] = useState<number | null>(null);
 	const [expandedSection, setExpandedSection] =
 		useState<HTMLDivElement | null>(null);
 
@@ -60,6 +65,8 @@ export const SiteProvider: React.FC<{ children: React.ReactNode }> = ({
 				setShowMobile,
 				deviceType,
 				setDeviceType,
+				expandedId,
+				setExpandedId,
 				expandedSection,
 				setExpandedSection,
 			}}>

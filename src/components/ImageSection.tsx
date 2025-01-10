@@ -6,17 +6,21 @@ import CircularImage from "./CircularImage";
 import { SiteContext } from "@/context/SiteContext";
 
 const ImageSection = ({
+	id = null,
 	heading = "",
 	description = "",
 	imgSrc = "",
 	isExpanded = null,
 	onExpand = () => {},
+	setExpandedId = () => {},
 }: {
+	id: number | null;
 	heading: string;
 	description: string;
 	imgSrc: string;
 	isExpanded: HTMLDivElement | null;
 	onExpand: (isExpanded: HTMLDivElement | null) => void;
+	setExpandedId: (id: number | null) => void;
 }) => {
 	const overlay = useRef<HTMLImageElement | null>(null);
 	const container = useRef<HTMLDivElement | null>(null);
@@ -122,6 +126,7 @@ const ImageSection = ({
 			if (wrapperEle) {
 				wrapperEle.classList.add("active-section");
 				onExpand(wrapperEle ?? null);
+				setExpandedId(id);
 			}
 		}
 	};
@@ -149,6 +154,7 @@ const ImageSection = ({
 			desc.current?.reverse();
 			circluarImg.current?.handleReverse();
 			onExpand(null);
+			setExpandedId(null);
 		}
 	};
 
